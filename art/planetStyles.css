@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    font-size: 16px;
+}
+
+.planet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15rem;
+    width: 15rem;
+    
+}
+
+.bluePlanet {
+
+    height:7rem;
+    width: 7rem;
+    border-radius: 50%;
+    background-color: blue;
+
+}
+
+.redPlanet {
+
+    height:9rem;
+    width: 9rem;
+    border-radius: 50%;
+    background-color: red;
+
+}
+
+.purplePlanet {
+
+    height:7rem;
+    width: 7rem;
+    border-radius: 50%;
+    background-color: purple;
+
+}
+
+.brownPlanet {
+
+    height:8rem;
+    width: 8rem;
+    border-radius: 50%;
+    background-color: brown;
+}
+
+svg {
+    background: green;
+}

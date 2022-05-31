@@ -1,331 +1,224 @@
-DRAFT OF README FOR SPACETRADERS GUI PROJECT
+
+#Space Traders GUI
 
 ---
 
-## List of Calls [from Spacetraders.io](https://api.spacetraders.io)
+## SECTIONS
 
-## [AUTH TOKEN]
+1. About this project
+2. API Info
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|Authorization|String|'Bearer Token'|
+---
 
-## GAME INFORMATION
-#### get account information [REQUIRES AUTH TOKEN]
+Based on:
 ```
-https://api.spacetraders.io/my/account
+https://spacetraders.stoplight.io/docs/spacetraders/YXBpOjQ0NjY0NDE3-space-traders-api
 ```
 
-#### determine server status
-```
-https://api.spacetraders.io/game/status
-```
+---
 
-#### see current net worth of top players [REQUIRES AUTH TOKEN]
-```
-https://api.spacetraders.io/game/leaderboard/net-worth
-```
+This project is directed at skill development.  
 
-## CREDIT MANAGEMENT
+Skills Used:
+- HTML
+- CSS 
+- JS
+- React 
 
-#### get a list of your loans [REQUIRES AUTH TOKEN]
+Note: It is desired that the initial base be developed with vanilla HTML, CSS, and JS.  React and other frameworks/technologies may be added later.
+
+---
+## API INFO
+
+###### BASE URL
 ```
-https://api.spacetraders.io/my/loans
+https://v2-0-0.alpha.spacetraders.io
 ```
 
-#### get available loans [REQUIRES AUTH TOKEN]
+### SHIPS
+
+#### Jettison Cargo [POST]
 ```
-https://api.spacetraders.io/types/loans
+/my/ships/{shipSymbol}/jettison
 ```
 
-#### take out a new loan [REQUIRES AUTH TOKEN]
+#### Scan [POST] / Scan CoolDown [GET]
 ```
-https://api.spacetraders.io/my/loans
+/my/ships/{shipSymbol}/scan
 ```
-
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|type|String|The type of loan you wish to take out|
 
-#### pay off a loan [REQUIRES AUTH TOKEN]
+#### View Ship [GET]
 ```
-https://api.spacetraders.io/my/loans/:loanId
+/my/ships/{shipSymbol}
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|loanId|String|The ID of the loan you wish to pay off|
-
-#### place a new purchase order [REQUIRES AUTH TOKEN]
+#### List Ships
 ```
-https://api.spacetraders.io/my/purchase-orders
+/my/ships
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|shipId|String|The ID of the ship which will purchase the goods|
-|good|String|The ID of the good you wish to purchase|
-|quantity|Number|The amount of goods to purchase|
+### MARKETS
 
-#### place a new sell order [REQUIRES AUTH TOKEN]
+#### Deploy Asset [POST]
 ```
-https://api.spacetraders.io/my/sell-orders
+/my/ships/{shipSymbol}/deploy
 ```
-
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|shipId|String|The ID of the ship which will sell the goods|
-|good|String|The ID of the good you wish to sell|
-|quantity|Number|The amount of goods to sell|
 
-#### buy a new ship [REQUIRES AUTH TOKEN]
+#### Trade Imports [GET]
 ```
-https://api.spacetraders.io/my/ships
+/trade/{tradeSymbol}/imports
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|location|String|The symbol of the location to purchase the ship|
-|type|String|The symbol of the ship to purchase|
-
-#### scrap ship for credits [REQUIRES AUTH TOKEN]
+#### Trade Exports [GET]
 ```
-https://api.spacetraders.io/my/ships/:shipId/
+/trade/{tradeSymbol}/exports
 ```
-
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|shipId|String|The ID of the ship you want to scrap|
 
-
-## MY SHIPS
-
-#### get info on an existing flight plan [REQUIRES AUTH TOKEN]
+#### Trade Exchanges [GET]
 ```
-https://api.spacetraders.io/my/flight-plans/:flightPlanId
+/trade/{tradeSymbol}/exchange
 ```
-
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|flightPlanId|String|ID of the flight plan|
-
 
-#### submit a new flight plan [REQUIRES AUTH TOKEN]
+#### List Markets [GET]
 ```
-https://api.spacetraders.io/my/flight-plans
+/systems/{systemSymbol}/markets
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|shipId|String|The target ship|
-|destination|String|Symbol of the location you want to send the ship
-
-#### get info on a specific owned ship [REQUIRES AUTH TOKEN]
+#### View Market [GET]
 ```
-https://api.spacetraders.io/my/ships/:shipId
+/systems/{systemSymbol}/markets/{waypointSymbol}
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|shipId|String|The ID of the ship you want to return|
+### TRADE
 
-#### get list of owned ships [REQUIRES AUTH TOKEN]
+#### Purchase Cargo [POST]
 ```
-https://api.spacetraders.io/my/ships
+/my/ships/{shipSymbol}/purchase
 ```
 
-#### jettison cargo [REQUIRES AUTH TOKEN]
+#### Sell Cargo [POST]
 ```
-https://api.spacetraders.io/my/ships/:shipId/jettison
+/my/ships/{shipSymbol}/sell
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|shipId|String|The ID of the ship you want to jettison from|
-|good|String|The SYMBOL of the good you wish to jettison|
-|quantity|Number|The amount of goods to jettison|
+### NAVIGATION
 
-#### transfer cargo between ships [REQUIRES AUTH TOKEN]
+#### Dock Ship [POST]
 ```
-https://api.spacetraders.io/my/ships/:fromShipId/transfer
+/my/ships/{shipSymbol}/dock
 ```
-
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|fromShipId|String|The ID of the ship you want to transfer from|
-|toShipId|String|The ID of the ship you want to transfer to|
-good|String|The SYMBOL of the good you wish to transfer|
-|quantity|Number|The amount of goods to transfer|
 
-#### attempt a warp jump [REQUIRES AUTH TOKEN]
+#### Orbit Ship [POST]
 ```
-https://api.spacetraders.io/my/warp-jumps
+/my/ships/{shipSymbol}/orbit
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|shipId|String|The target ship|
-
-## STRUCTURES
-#### create a new structure [REQUIRES AUTH TOKEN]
+#### Jump Ship [POST] / Jump Cooldown [GET]
 ```
-https://api.spacetraders.io/my/structures
+/my/ships/{shipSymbol}/jump
 ```
-
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|location|String|The symbol of the location to purchase the structure|
-|type|String|The symbol of the stucture to purchase|
 
-#### deposit goods to an owned structure [REQUIRES AUTH TOKEN]
+#### Refuel Ship [POST]
 ```
-https://api.spacetraders.io/my/structures/:structureId/deposit
+/my/ships/{shipSymbol}/refuel
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|structureId|String|The ID of the structure you want to deposit goods into|
-|shipId|String|The ship ID you wish to deposit goods from|
-|good|String|The SYMBOL of the good you wish to deposit|
-|quantity|Number|The amount of goods to deposit|
-
-#### deposit goods to a structure [REQUIRES AUTH TOKEN]
+#### Navigate Ship [POST] / Navigation Status [GET]
 ```
-https://api.spacetraders.io/structures/:structureId/deposit
+/my/ships/{shipSymbol}/navigate
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|structureId|String|The ID of the structure you want to deposit goods into|
-|shipId|String|The ship ID you wish to deposit goods from|
-|good|String|The SYMBOL of the good you wish to deposit|
-|quantity|Number|The amount of goods to deposit|
+### AGENTS
 
-#### see a specific structure [REQUIRES AUTH TOKEN]
+#### Register New Agent [POST]
 ```
-https://api.spacetraders.io/structures/:structureId
+/agents
 ```
-
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|structureId|String|Symbol of the structure you want to get info for|
 
-#### transfer goods from an owned structure to a ship [REQUIRES AUTH TOKEN]
+#### My Agent Details [GET]
 ```
-https://api.spacetraders.io/my/structures/:structureId/transfer
+/my/agent
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|structureId|String|The ID of the structure you want to transfer goods from|
-|shipId|String|The ship ID you wish to deposit goods to|
-|good|String|The SYMBOL of the good you wish to transfer|
-|quantity|Number|The amount of goods to transfer|
+### CONTRACTS
 
-#### use to see a specific structure [REQUIRES AUTH TOKEN]
+#### Deliver on Contract [POST]
 ```
-https://api.spacetraders.io/my/structures/:structureId
+/my/ships/{shipSymbol}/deliver
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|structureId|String|Symbol of the structure you want to get info for|
-
-#### use to see all owned structures [REQUIRES AUTH TOKEN]
+#### List Contracts [GET]
 ```
-https://api.spacetraders.io/my/structures
+/my/contracts
 ```
 
-## SYSTEM INFO
-#### get location info [REQUIRES AUTH TOKEN]
+#### Contract Details [GET]
 ```
-https://api.spacetraders.io/locations/:locationSymbol
+/my/contracts/{contractId}
 ```
-
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|locationSymbol|String|Symbol of the location you want to get info for|
 
-#### get a location's marketplace info [REQUIRES AUTH TOKEN]
+#### Accept Contract [POST]
 ```
-https://api.spacetraders.io/locations/:locationSymbol/marketplace
+/my/contracts/{contractId}/accept
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|locationSymbol|String|Symbol of the location you want to get marketplace info for|
+### EXTRACT
 
-#### get a list of ships at a location [REQUIRES AUTH TOKEN]
+#### Extract Resources [POST] / Extraction Cooldown [GET]
 ```
-https://api.spacetraders.io/locations/:locationSymbol/ships
+/my/ships/{shipSymbol}/extract
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|locationSymbol|String|Symbol of the location you want to get ship info for|
-
-#### list all available ships in the system [REQUIRES AUTH TOKEN]
+#### Survey Waypoint [POST] / Survey Cooldown [GET]
 ```
-https://api.spacetraders.io/systems/:systemSymbol/ship-listings
+/my/ships/{shipSymbol}/survey
 ```
-
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|systemSymbol|String|Symbol of the system you want to get a list of ships for|
 
+### SYSTEMS
 
-#### get all active flight plans in the system [REQUIRES AUTH TOKEN]
+#### Chart Waypoint [POST]
 ```
-https://api.spacetraders.io/systems/:systemSymbol/flight-plans
+/my/ships/{shipSymbol}/chart
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|systemSymbol|String|Symbol of the system you want to get a list of flight plans for|
-
-#### get info on a systems docked ships [REQUIRES AUTH TOKEN]
+#### List Systems [GET]
 ```
-https://api.spacetraders.io/systems/:systemSymbol/ships
+/systems
 ```
-
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|systemSymbol|String|Symbol of the system you want to get a list of docked ships for|
 
-#### get location info for a system [REQUIRES AUTH TOKEN]
+#### View Systems [GET]
 ```
-https://api.spacetraders.io/systems/:systemSymbol/locations
+/systems/{systemSymbol}
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|systemSymbol|String|Symbol of the system you want to get info for|
+#### List Waypoints
+```
+/systems/{systemSymbol}/waypoints
+```
 
-#### get systems info [REQUIRES AUTH TOKEN]
+#### View Waypoint
 ```
-https://api.spacetraders.io/systems/:systemSymbol
+/systems/{systemSymbol}/waypoints/{waypointSymbol}
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|systemSymbol|String|Symbol of the system you want info for|
+### SHIPYARDS
 
-#### get available goods [REQUIRES AUTH TOKEN]
+#### Purchase Ship [POST]
 ```
-https://api.spacetraders.io/types/goods
+/my/ships
 ```
 
-#### get available structures [REQUIRES AUTH TOKEN]
+#### List Shipyards [GET]
 ```
-https://api.spacetraders.io/types/structures
+/systems/{systemSymbol}/shipyards
 ```
 
-#### get info on available ships [REQUIRES AUTH TOKEN]
+#### Shipyard Details [GET]
 ```
-https://api.spacetraders.io/types/ships
+/systems/{systemSymbol}/shipyards/{waypointSymbol}
 ```
 
-|FIELD|TYPE|DESCRIPTION|
-|:--|:--|:--|
-|class[optional]|String|Filter available ships on class|
-
+#### Shipyard Listings [GET]
+```
+/systems/{systemSymbol}/shipyards/{waypointSymbol}/ships
+```
