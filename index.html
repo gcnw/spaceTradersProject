@@ -9,6 +9,7 @@
             <ul>
                 <li class="general">GENERAL INFO</li>
                 <li class="contract">CONTRACT INFO</li>
+                <li class="ships">SHIP INFO</li>
             </ul>
         </nav>
         <main>
@@ -24,10 +25,10 @@
                     [CONTRACTS NOT REQUESTED]
                 </p>
             </div>
-            <div class="callTestContainer unAssigned">
-                <button id="serverStatusButton" type="button" onclick="">[ASSIGN ME A FUNCTION]</button>
-                <p class="responseData">
-                    [UNASSIGNED]
+            <div class="callTestContainer ships">
+                <button class="ships" id="listShipsButton" type="button" onclick="getShipList()">Get Ship List</button>
+                <p class="responseData" id="shipList">
+                    [SHIPS NOT REQUESTED]
                 </p>
             </div>
             <div class="callTestContainer unAssigned">
@@ -68,7 +69,12 @@
             </div>
         </main>
     </body>
+    <script src="./src/js/config.js"></script>
     <script src="./src/js/server-status.js"></script>
     <script src="./src/js/list-contracts.js"></script>
+
     <script type="module" src="./script.js"></script>
+
+    <script src="./src/js/list-ships.js"></script>
+
 </html>
