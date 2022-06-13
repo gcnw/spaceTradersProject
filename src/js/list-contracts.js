@@ -22,15 +22,15 @@ async function getContractList(){
           }, networkError => console.log(networkError))
           .then(jsonResponse => {
             contractList.innerHTML = '';
-            printValues(jsonResponse);
+            printContractValues(jsonResponse);
           })
           .catch(error => console.log(error))
 }
 
-function printValues(jsonData) {
+function printContractValues(jsonData) {
   for(let item in jsonData){
     if(jsonData[item] instanceof Object){
-      printValues(jsonData[item]);
+      printContractValues(jsonData[item]);
     }
     else 
       contractList.innerHTML += jsonData[item] + "<br>"
