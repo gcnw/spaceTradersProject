@@ -3,7 +3,7 @@
 //  06JUN2022
 
 const shipList = document.getElementById("shipList");
-const targetURL = "https://v2-0-0.alpha.spacetraders.io/my/ships";
+const shipListURL = "https://v2-0-0.alpha.spacetraders.io/my/ships";
 
 function getShipList(){
 var jsonXHR = new XMLHttpRequest(); //  pre-fetch() data retrieval
@@ -17,7 +17,7 @@ jsonXHR.onreadystatechange = function() {
     }
 };
 
-jsonXHR.open("GET", targetURL, true); //  open(method, url, async, user, password)
+jsonXHR.open("GET", shipListURL, true); //  open(method, url, async, user, password)
 
 jsonXHR.setRequestHeader("Content-Type","application/json");
 jsonXHR.setRequestHeader("Authorization", `Bearer ${ api_key }`);
