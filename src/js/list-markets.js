@@ -18,7 +18,7 @@ const fetchMarkets = fetch(marketListURL,{
 
 
 
-function getJSON(response){
+function getMarketListJSON(response){
     marketList.innerHTML = '[RESPONSE RECEIVED]';
     if(response.ok){    
         return response.json();}
@@ -26,15 +26,15 @@ function getJSON(response){
         throw new Error('[REQUEST FAILED]');}
 }
 
-function printJSON(jsonData){
+function printMarketListJSON(jsonData){
     marketList.innerHTML = '';
     printValues(jsonData);
 }
 
-function printValues(jsonData) {
+function printMarketListValues(jsonData) {
     for(let item in jsonData){
       if(jsonData[item] instanceof Object){
-        printValues(jsonData[item]);
+        printMarketListValues(jsonData[item]);
       }
       else 
         marketList.innerHTML += jsonData[item] + "<br>"
@@ -49,9 +49,9 @@ async function getMarketList() {
     if(localStorage.getItem('marketListRetrieved') == null){
         await fetchMarkets
             .then(response => 
-                getJSON(response))
+                getMarketListJSON(response))
             .then(jsonData => {
-                printJSON(jsonData);
+                printMarketListJSON(jsonData);
                 localStorage.setItem('marketListRetrieved',true)
             })
             .catch(error => console.log(error));

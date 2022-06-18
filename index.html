@@ -51,16 +51,16 @@
                     [UNASSIGNED]
                 </p>
             </div>
-            <div class="callTestContainer unAssigned">
-                <button id="serverStatusButton" type="button" onclick="">[ASSIGN ME A FUNCTION]</button>
-                <p class="responseData">
-                    [UNASSIGNED]
+            <div class="callTestContainer general">
+                <button class="general" id="serverStatusButton" type="button" onclick="">[Get User Data]</button>
+                <p class="responseData" id="userData">
+                    [USER DATA NOT REQUESTED]
                 </p>
             </div>
-            <div class="callTestContainer unAssigned">
-                <button id="serverStatusButton" type="button" onclick="">[ASSIGN ME A FUNCTION]</button>
-                <p class="responseData">
-                    [UNASSIGNED]
+            <div class="callTestContainer systems">
+                <button class="systems" id="listSystemsButton" type="button" onclick="getSystemsList()">Get Systems List</button>
+                <p class="responseData" id="systemsList">
+                    [SYSTEMS NOT REQUESTED]
                 </p>
             </div>
             <div class="callTestContainer markets">
@@ -77,4 +77,6 @@
     <script type="module" src="./script.js"></script>
     <script src="./src/js/list-ships.js"></script>
     <script src="./src/js/list-markets.js"></script>
+    <script src="./src/js/list-systems.mjs"></script>
+    <script src="./src/js/get-userdata.mjs"></script>
 </html>
