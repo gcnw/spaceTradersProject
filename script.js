@@ -1,45 +1,47 @@
-import { data, userData, registerNewUser, getUserInfo  } from './src/js/get-userdata.mjs';
-console.log(data.data.token)
-getUserInfo(data.data.token)
-const serverStatus = document.getElementById('serverStatus');
-const statusURL = "https://api.spacetraders.io/game/status"
+import { userData, registerNewUser, getUserInfo  } from './src/js/get-userdata.mjs';
 
-
-async function retriveServerStatus(){
-    await fetch(statusURL,{cache:"no-cache"})
-            .then(response => {
-                if(response.ok) {
-                    return response.json();
-                }
-                throw new Error('Request Failed');
-            }, netErr => console.log(netErr.message))
-            .then(jsonResponse => {
-                serverStatus.innerHTML = jsonResponse['status'];
-            });
-}
-const retriveServerStatus2 = async () => {
-    fetch("https://v2-0-0.alpha.spacetraders.io/", {
-        "method": "GET",
-        "headers": {
-            "Content-Type": "application/json"
-        }
-    })
-        .then(response => {
-            console.log(response);
-            return response.json()
-        })
-        .then(jsonData => {
-            console.log(jsonData)
-        })
-        .catch(err => {
-            console.error(err);
-        })
-}
 
 
 
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
     //retriveServerStatus2() <-- not needed rn but works
+    
+
+    // THIS REGISTERS A NEW USER
+    // 
+
+    const registerButton = document.getElementById("registerUser")
+    registerButton.style.color = "green"
+    const userInput = document.getElementById("userAccount")
+
+    registerButton.addEventListener("click", event => {
+      
+        const userName = userInput.value
+        // This should be a promise to wait for the answer
+        // and put 
+        registerNewUser(userName)
+
+    } )
+    
+        // THIS FETCHES THE NEEDED DATA:
+    const userDataButton = document.getElementById("userStatusButton")
+    userDataButton.style.color = "red"
+    const userDataResponse = document.getElementById("userDataResponse")
+
+    userDataButton.addEventListener("click", event => {
+      
+        
+        // This should be a promise to wait for the answer
+        // and put 
+        getUserInfo(userData.data.token, userDataResponse)
+
+    } )
+   
+    
+
+    
+    // THIS HOLDS CRITICAL DATA.. NOT SURE HOW TO HANDLE IT
+    console.log(userData.data.agent.symbol)
 
 })
