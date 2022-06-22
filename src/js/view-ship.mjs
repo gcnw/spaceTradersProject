@@ -14,4 +14,29 @@ const fetchViewShip = fetch(viewShipURL,{
     }
 });
 
+function getViewShipJSON(response){
+    viewShip.innerHTML = '[RESPONSE RECEIVED]';
+    if(response.ok){
+        return response.json();
+    }
+    else {
+        throw new Error('[REQUEST FAILED]');
+    }
+}
+
+function printViewShipJSON(jsonData){
+    viewShip.innerHTML = '';
+    printViewShipValues(jsonData);
+}
+
+function printViewShipValues(jsonData){
+    for(let item in jsonData){
+        if(jsonData[item] instanceof Object){
+            printViewShipValues(jsonData[item]);
+        }
+        else
+            viewShip.innerHTML += jsonData[item] + "<br>"
+    }
+}
+
 export default fetchViewShip;
