@@ -1,32 +1,50 @@
+//TODO: Update class to accept more headers with constructor
+
 export class SpaceTradersGet {
-    constructor(getURL,documentID, apiKey){
+    constructor(getURL,documentID){
         this.getURL = getURL;
         this.documentID = documentID;
-        this.apiKey = apiKey;  /* || localStorage.getItem('api_key') */
     }
 
-    fetchData(){
-        fetch(this.getURL,{
+    async fetchData(){
+        const apiKey = localStorage.apiKey;
+
+        if( apiKey == null){
+            window.alert("API key not found.");
+            return null;
+        }
+
+        await fetch(this.getURL,{
             "method": "GET",
             "headers": {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${this.apiKey}`
-    }})};
+                "Authorization": `Bearer ${apiKey}`
+                }})
+        .then(response => {
+            this.documentID.innerHTML = '[RESPONSE RECEIVED]';
+            localStorage.setItem(`${this.documentID.id}`, response.ok);
+            console.log(response);
+            if(response.ok){
+                return response.json();
+                }
+            else {
+                throw new Error('[REQUEST FAILED]')
+                }
+            })
+        .then(jsonData => {
+            this.printJSON(jsonData);
+            })
+        .catch(error => console.log(error));
+    
+    };
 
-    getJSON(response){
-        this.documentID.innerHTML = '[RESPONSE RECEIVED]';
-        if(response.ok){
-            return response.json();
-        }
-        else {
-            throw new Error('[REQUEST FAILED]')
-        }
-    }
+// Main purpose is just to clear innerHTML 
 
     printJSON(jsonData){
         this.documentID.innerHTML = '';
-        printValues(jsonData);
+        this.printValues(jsonData);
     }
+
 
     printValues(jsonData){
         for(let item in jsonData){
@@ -36,18 +54,6 @@ export class SpaceTradersGet {
             else {
                 this.documentID.innerHTML += jsonData[item] + "<br>"
             }
-        }
-    }
-
-    async getRequestedData() {
-        if(localStorage.getItem(`${this.documentID}` == null)){
-            await fetchData
-                .then(response => this.getJSON(response))
-                .then(jsonData => {
-                    this.printJSON(jsonData);
-                    localStorage.setItem(`${this.documentID}`, "[RETRIEVED]");
-                })
-                .catch(error => console.log(error));
         }
     }
 }
