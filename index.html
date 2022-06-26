@@ -3,6 +3,7 @@
     <head>
         <title>Space Traders Test</title>
         <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
     </head>
     <body>
         <nav>
@@ -49,11 +50,9 @@
                     [USERDATA NOT REQUESTED]
                 </p>
             </div>
-            <div class="callTestContainer unAssigned">
-                <button id="serverStatusButton" type="button" onclick="">[ASSIGN ME A FUNCTION]</button>
-                <p class="responseData">
-                    [UNASSIGNED]
-                </p>
+            <div class="callTestContainer">
+                <button id="serverStatusButton" type="button" onclick="mocha.run()">[Run Mocha Tests]</button>
+                <div id="mocha"></div>
             </div>
             <div class="callTestContainer general">
                 <button class="general" id="serverStatusButton" type="button" onclick="">[Get User Data]</button>
@@ -73,15 +72,44 @@
                     [MARKETS NOT REQUESTED]
                 </p>
             </div>
+            <div class="callTestContainer ships">
+                <button class="ships" id="viewShipsButton" type="button" onclick="viewShipCall.getRequestedData()">[View Ship]</button>
+                <p class="responseData" id="viewShipResponse">
+                    [SHIP VIEW NOT REQUESTED]
+                </p>
+            </div>
+            <div class="callTestContainer systems">
+                <button class="systems" id="listSystemsButton" type="button" onclick="">[NOT ASSIGNED]</button>
+                <p class="responseData" id="systemsList">
+                    [NOT ASSIGNED]
+                </p>
+            </div>
+            <div class="callTestContainer markets">
+                <button class="markets" id="listMarketsButton" type="button" onclick="">[NOT ASSIGNED]</button>
+                <p class="responseData" id="marketList">
+                    [NOT ASSIGNED]
+                </p>
+            </div>
         </main>
     </body>
-    <!--script src="./src/js/config.js"></script-->
+<!-- START TESTING START TESTING START TESTING START TESTING-->
+    
+    <script src="https://unpkg.com/chai/chai.js"></script>
+    <script src="https://unpkg.com/mocha/mocha.js"></script>
+
+    <script class="mocha-init">
+      mocha.setup('bdd');
+      mocha.checkLeaks();
+    </script>
+    <script type="module" src="./test/view-ship.test.js"></script>
+<!-- END TESTING END TESTING END TESTING END TESTING END-->
+    <script type="module" src="./src/js/spaceTradersGet.mjs"></script>
     <script src="./src/js/server-status.js"></script>
     <script src="./src/js/list-contracts.js"></script>
     <script type="module" src="./script.js"></script>
     <script src="./src/js/list-ships.js"></script>
     <script src="./src/js/list-markets.js"></script>
-    <script src="./src/js/view-ship.mjs"></script>
+    <script type="module" src="./src/js/view-ship.mjs"></script>
     <script src="./src/js/list-systems.mjs"></script>
     <script src="./src/js/get-userdata.mjs"></script>
 </html>
