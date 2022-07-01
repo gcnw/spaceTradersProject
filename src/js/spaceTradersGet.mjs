@@ -7,6 +7,7 @@ export class SpaceTradersGet {
     }
 
     async fetchData(){
+        console.log(`[FETCHING: ${this.documentID.id}]`)
         const apiKey = localStorage.apiKey;
 
         if( apiKey == null){
@@ -22,7 +23,7 @@ export class SpaceTradersGet {
                 }})
         .then(response => {
             this.documentID.innerHTML = '[RESPONSE RECEIVED]';
-            localStorage.setItem(`${this.documentID.id}`, response.ok);
+            localStorage.setItem(`${this.documentID.id}.status`, response.ok);
             console.log(response);
             if(response.ok){
                 return response.json();
@@ -32,6 +33,7 @@ export class SpaceTradersGet {
                 }
             })
         .then(jsonData => {
+            localStorage.setItem(`${this.documentID.id}.json`, JSON.stringify(jsonData));
             this.printJSON(jsonData);
             })
         .catch(error => console.log(error));

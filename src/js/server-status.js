@@ -1,6 +1,6 @@
 
 
-const serverStatus = document.getElementById('serverStatus');
+const serverStatus = document.getElementById('server-status');
 const statusURL = "https://api.spacetraders.io/game/status"
 
 async function retriveServerStatus() {
