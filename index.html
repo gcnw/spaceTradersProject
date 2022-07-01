@@ -11,29 +11,26 @@
                 <li class="general">GENERAL INFO</li>
                 <li class="contract">CONTRACT INFO</li>
                 <li class="ships">SHIP INFO</li>
-
                 <li class="users">USER INFO</li>
-
                 <li class="markets">MARKET INFO</li>
-
             </ul>
         </nav>
         <main>
             <div class="callTestContainer general">
                 <button id="serverStatusButton" type="button" onclick="retriveServerStatus()">Get Server Status</button>
-                <p class="responseData" id="serverStatus">
+                <p class="responseData" id="server-status">
                     [STATUS NOT REQUESTED]
                 </p>
             </div>
             <div class="callTestContainer contract">
-                <button class="contract" id="getContractListButton" type="button" onclick="getContractList()">Get Contract List</button>
-                <p class="responseData" id="contractList">
+                <button class="contract" id="list-contracts-button" type="button" >Get Contract List</button>
+                <p class="responseData" id="contract-list-response">
                     [CONTRACTS NOT REQUESTED]
                 </p>
             </div>
             <div class="callTestContainer ships">
-                <button class="ships" id="listShipsButton" type="button" onclick="getShipList()">Get Ship List</button>
-                <p class="responseData" id="shipList">
+                <button class="ships" id="list-ships-button" type="button">Get Ship List</button>
+                <p class="responseData" id="ship-list-response">
                     [SHIPS NOT REQUESTED]
                 </p>
             </div>
@@ -61,32 +58,32 @@
                 </p>
             </div>
             <div class="callTestContainer systems">
-                <button class="systems" id="listSystemsButton" type="button" onclick="getSystemsList()">Get Systems List</button>
-                <p class="responseData" id="systemsList">
+                <button class="systems" id="list-systems-button" type="button" >Get Systems List</button>
+                <p class="responseData" id="list-systems-response">
                     [SYSTEMS NOT REQUESTED]
                 </p>
             </div>
             <div class="callTestContainer markets">
-                <button class="markets" id="listMarketsButton" type="button" onclick="getMarketList()">Get Market List</button>
-                <p class="responseData" id="marketList">
+                <button class="markets" id="list-markets-button" type="button" >Get Market List</button>
+                <p class="responseData" id="list-markets-response">
                     [MARKETS NOT REQUESTED]
                 </p>
             </div>
             <div class="callTestContainer ships">
-                <button class="ships" id="viewShipsButton" type="button" onclick="">[View Ship]</button>
-                <p class="responseData" id="viewShipResponse">
+                <button class="ships" id="view-ship-button" type="button" onclick="">[View Ship]</button>
+                <p class="responseData" id="view-ship-response">
                     [SHIP VIEW NOT REQUESTED]
                 </p>
             </div>
-            <div class="callTestContainer systems">
-                <button class="systems" id="listSystemsButton" type="button" onclick="">[NOT ASSIGNED]</button>
-                <p class="responseData" id="systemsList">
-                    [NOT ASSIGNED]
+            <div class="callTestContainer">
+                <button class="systems" id="view-system-button" type="button" >[View System]</button>
+                <p class="responseData" id="view-system-response">
+                    [SYSTEM VIEW NOT REQUESTED]
                 </p>
             </div>
-            <div class="callTestContainer markets">
-                <button class="markets" id="listMarketsButton" type="button" onclick="">[NOT ASSIGNED]</button>
-                <p class="responseData" id="marketList">
+            <div class="callTestContainer ">
+                <button class="" id="" type="button" onclick="">[NOT ASSIGNED]</button>
+                <p class="responseData" id="">
                     [NOT ASSIGNED]
                 </p>
             </div>
@@ -105,11 +102,12 @@
 <!-- END TESTING END TESTING END TESTING END TESTING END-->
     <script type="module" src="./src/js/spaceTradersGet.mjs"></script>
     <script src="./src/js/server-status.js"></script>
-    <script src="./src/js/list-contracts.js"></script>
+    <script type="module" src="./src/js/list-contracts.js"></script>
     <script type="module" src="./script.js"></script>
-    <script src="./src/js/list-ships.js"></script>
-    <script src="./src/js/list-markets.js"></script>
+    <script type="module" src="./src/js/list-markets.js"></script>
+    <script type="module" src="./src/js/list-ships.js"></script>
     <script type="module" src="./src/js/view-ship.mjs"></script>
-    <script src="./src/js/list-systems.mjs"></script>
+    <script type="module" src="./src/js/list-systems.mjs"></script>
+    <script type="module" src="./src/js/view-system.mjs"></script>
     <script src="./src/js/get-userdata.mjs"></script>
 </html>
