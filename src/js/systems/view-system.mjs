@@ -1,4 +1,4 @@
-import { SpaceTradersGet } from './spaceTradersGet.mjs'
+import { SpaceTradersGet } from '../spaceTradersGet.mjs'
 
 //Placeholder 
 let systemSymbol = "X1-OE"

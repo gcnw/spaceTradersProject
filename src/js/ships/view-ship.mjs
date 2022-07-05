@@ -1,4 +1,4 @@
-import { SpaceTradersGet } from "./spaceTradersGet.mjs"
+import { SpaceTradersGet } from "../spaceTradersGet.mjs"
 
 //Placeholder - Add selection ability later
 let shipSymbol = "XINIX707-1";

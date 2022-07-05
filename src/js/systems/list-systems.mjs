@@ -1,5 +1,5 @@
 // This module will return a list of all systems.
-import { SpaceTradersGet } from "./spaceTradersGet.mjs";
+import { SpaceTradersGet } from "../spaceTradersGet.mjs";
 
 const systemsListURL = "https://v2-0-0.alpha.spacetraders.io/systems";
 const systemsListContainer = document.getElementById('list-systems-response');
