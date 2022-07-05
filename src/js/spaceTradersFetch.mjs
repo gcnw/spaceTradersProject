@@ -1,14 +1,19 @@
 //TODO: Update class to accept more headers with constructor
 
-export class SpaceTradersGet {
-    constructor(getURL,documentID){
+export class SpaceTradersFetch {
+    constructor(getURL,documentID,body){
         this.getURL = getURL;
         this.documentID = documentID;
+        this.body = body;
     }
 
     async fetchData(){
         console.log(`[FETCHING: ${this.documentID.id}]`)
-        const apiKey = localStorage.apiKey;
+        const apiKey = localStorage.getItem('apiKey');
+
+        let apiHeaders = new Headers();
+        apiHeaders.append('Content-Type', 'application/json')
+        apiHeaders.append('Authorization', `Bearer ${apiKey}`);
 
         if( apiKey == null){
             window.alert("API key not found.");
@@ -17,10 +22,8 @@ export class SpaceTradersGet {
 
         await fetch(this.getURL,{
             "method": "GET",
-            "headers": {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${apiKey}`
-                }})
+            "headers": apiHeaders,
+            "body": this.body,})
         .then(response => {
             this.documentID.innerHTML = '[RESPONSE RECEIVED]';
             localStorage.setItem(`${this.documentID.id}.status`, response.ok);
@@ -60,4 +63,4 @@ export class SpaceTradersGet {
     }
 }
 
-export default { SpaceTradersGet };
+export default { SpaceTradersFetch };
