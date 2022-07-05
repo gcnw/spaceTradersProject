@@ -1,7 +1,7 @@
 
 
 const serverStatus = document.getElementById('server-status');
-const statusURL = "https://api.spacetraders.io/game/status"
+const statusURL = "https://v2-0-0.alpha.spacetraders.io/game/status"
 
 async function retriveServerStatus() {
     await fetch(statusURL, { cache: "no-cache" })

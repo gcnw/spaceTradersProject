@@ -1,4 +1,4 @@
-import { userData, registerNewUser, getUserInfo  } from './src/js/get-userdata.mjs';
+import { userData, registerNewUser, getUserInfo  } from './src/js/agents/get-userdata.mjs';
 
 
 
