@@ -1,4 +1,4 @@
-import { SpaceTradersFetch } from "./SpaceTradersFetch.mjs"
+import { SpaceTradersFetch } from "../SpaceTradersFetch.mjs"
 
 //Placeholder - Add selection ability later
 let systemSymbol = "X1-OE" 
