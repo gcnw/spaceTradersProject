@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Space Traders Test</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li class="general">GENERAL INFO</li>
+                <li class="contract">CONTRACT INFO</li>
+                <li class="ships">SHIP INFO</li>
+                <li class="markets">MARKET INFO</li>
+
+            </ul>
+        </nav>
+        <main>
+            <div class="callTestContainer general">
+                <button id="serverStatusButton" type="button" onclick="retriveServerStatus()">Get Server Status</button>
+                <p class="responseData" id="serverStatus">
+                    [STATUS NOT REQUESTED]
+                </p>
+            </div>
+            <div class="callTestContainer contract">
+                <button class="contract" id="getContractListButton" type="button" onclick="getContractList()">Get Contract List</button>
+                <p class="responseData" id="contractList">
+                    [CONTRACTS NOT REQUESTED]
+                </p>
+            </div>
+            <div class="callTestContainer ships">
+                <button class="ships" id="listShipsButton" type="button" onclick="getShipList()">Get Ship List</button>
+                <p class="responseData" id="shipList">
+                    [SHIPS NOT REQUESTED]
+                </p>
+            </div>
+            <div class="callTestContainer unAssigned">
+                <button id="serverStatusButton" type="button" onclick="">[ASSIGN ME A FUNCTION]</button>
+                <p class="responseData">
+                    [UNASSIGNED]
+                </p>
+            </div>
+            <div class="callTestContainer unAssigned">
+                <button id="serverStatusButton" type="button" onclick="">[ASSIGN ME A FUNCTION]</button>
+                <p class="responseData">
+                    [UNASSIGNED]
+                </p>
+            </div>
+            <div class="callTestContainer unAssigned">
+                <button id="serverStatusButton" type="button" onclick="">[ASSIGN ME A FUNCTION]</button>
+                <p class="responseData">
+                    [UNASSIGNED]
+                </p>
+            </div>
+            <div class="callTestContainer unAssigned">
+                <button id="serverStatusButton" type="button" onclick="">[ASSIGN ME A FUNCTION]</button>
+                <p class="responseData">
+                    [UNASSIGNED]
+                </p>
+            </div>
+            <div class="callTestContainer unAssigned">
+                <button id="serverStatusButton" type="button" onclick="">[ASSIGN ME A FUNCTION]</button>
+                <p class="responseData">
+                    [UNASSIGNED]
+                </p>
+            </div>
+            <div class="callTestContainer markets">
+                <button class="markets" id="listMarketsButton" type="button" onclick="getMarketList()">Get Market List</button>
+                <p class="responseData" id="marketList">
+                    [MARKETS NOT REQUESTED]
+                </p>
+            </div>
+        </main>
+    </body>
+    <script src="./src/js/config.js"></script>
+    <script src="./src/js/server-status.js"></script>
+    <script src="./src/js/list-contracts.js"></script>
+    <script type="module" src="./script.js"></script>
+    <script src="./src/js/list-ships.js"></script>
+    <script src="./src/js/list-markets.js"></script>
+    <script src="./src/js/view-ship.mjs"></script>
+</html>
